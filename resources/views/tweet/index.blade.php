@@ -21,8 +21,9 @@
               @foreach ($tweets as $tweet)
               <tr class="hover:bg-grey-lighter">
                 <td class="py-4 px-6 border-b border-grey-light">
+                  <!-- 詳細ボタン -->
                   <a href="{{ route('tweet.show',$tweet->id) }}">
-                    <h3 class="text-left font-bold text-lg text-grey-dark">{{$tweet->tweet}}</h3>
+                    <h3 class="text-left font-bold text-lg text-grey-dark">投稿者【{{$tweet->username}}】--タイトル【{{$tweet->tweet}}】--投稿日時【{{$tweet->created_at}}】</h3>
                   </a>
                   <div class="flex">
                     <!-- 更新ボタン -->
