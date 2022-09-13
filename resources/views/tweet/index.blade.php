@@ -25,6 +25,7 @@
                   <a href="{{ route('tweet.show',$tweet->id) }}">
                     <h3 class="text-left font-bold text-lg text-grey-dark">投稿者【{{$tweet->username}}】--タイトル【{{$tweet->tweet}}】--投稿日時【{{$tweet->created_at}}】</h3>
                   </a>
+                  
                   <div class="flex">
                     <!-- 更新ボタン -->
                     <form action="{{ route('tweet.edit',$tweet->id) }}" method="GET" class="text-left">
