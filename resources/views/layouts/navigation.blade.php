@@ -1,3 +1,5 @@
+<!-- resources/views/layouts/navigation.blade.php -->
+
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
   <!-- Primary Navigation Menu -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,6 +28,12 @@
         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
           <x-nav-link :href="route('tweet.create')" :active="request()->routeIs('tweet.create')">
             {{ __('Create') }}
+          </x-nav-link>
+        </div>
+        <!-- 🔽 マイページへのリンクを追加 -->
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+          <x-nav-link :href="route('tweet.mypage')" :active="request()->routeIs('tweet.mypage')">
+            {{ __('Mypage') }}
           </x-nav-link>
         </div>
       </div>
@@ -90,6 +98,12 @@
         {{ __('Create') }}
       </x-responsive-nav-link>
     </div>
+    <!-- 🔽 マイページへのリンクを追加 -->
+    <div class="pt-2 pb-3 space-y-1">
+      <x-responsive-nav-link :href="route('tweet.mypage')" :active="request()->routeIs('tweet.mypage')">
+        {{ __('Mypage') }}
+      </x-responsive-nav-link>
+    </div>
 
     <!-- Responsive Settings Options -->
     <div class="pt-4 pb-1 border-t border-gray-200">
@@ -120,3 +134,4 @@
     </div>
   </div>
 </nav>
+
