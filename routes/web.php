@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 // 🔽 追加
 use App\Http\Controllers\TweetController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\ReactionController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\SearchController;
 
@@ -20,9 +21,10 @@ use App\Http\Controllers\SearchController;
 // 🔽 追加
 
 Route::group(['middleware' => 'auth'], function () {
-    // 🔽 追加（検索画面）
+    // reaction 
+    Route::post('tweet/{tweet}/reaction', [ReactionController::class, 'store'])->name('reaction');
+    Route::post('tweet/{tweet}/unreaction', [ReactionController::class, 'destroy'])->name('unreaction');
     Route::get('/tweet/search/input', [SearchController::class, 'create'])->name('search.input');
-    // 🔽 追加（検索処理）
     Route::get('/tweet/search/result', [SearchController::class, 'index'])->name('search.result');
     Route::post('user/{user}/follow', [FollowController::class, 'store'])->name('follow');
     Route::get('user/{user}', [FollowController::class, 'show'])->name('follow.show');
