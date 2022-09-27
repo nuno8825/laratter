@@ -52,7 +52,7 @@
                     
                     <a href="{{ route('follow.show', $tweet->user->id) }}">
                     <span class="tooltip">
-                      <p class="text-left text-grey-dark">{{$tweet->user->name}}</p>
+                      <p class="text-left text-grey-dark">投稿者【{{$tweet->user->name}}】</p>
                       <span class="description_top">このユーザーの詳細をみる</span></span>
                     </a>
                     
@@ -93,7 +93,7 @@
                       <a href="{{ route('tweet.show',$tweet->id) }}" >
                         <span class="tooltip">  
                           <h1 class="text-left font-bold text-lg text-grey-dark" background-color: black>{{$tweet->tweet}}</h1>
-                        <span class="description_top">ツイートの詳細をみる</span></span>
+                        <span class="description_top">このツイートの詳細をみる</span></span>
                       </a>
                     </div>
                     
