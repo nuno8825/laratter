@@ -22,6 +22,7 @@ class FavoriteController extends Controller
     {
         $tweet->users()->attach(Auth::id());
         return redirect()->route('tweet.index');
+        
     }
 
     

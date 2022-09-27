@@ -62,3 +62,16 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+## データエンジニアカタパルト　フェーズ１　提出課題　画面録画
+
+## ファイル名　
+## 布川昌憲＿３８＿laravel初級編
+
+## ボタンにマウスのカーソルを乗せると、説明がでる機能を作った
+
+## 削除ボタンを押したとき、一発で削除されないように本当に削除するかの確認のポップアップがでる機能を作った
+
+##　右下にある猫と顔文字は、スタンプ機能を作ろうとした残骸です
