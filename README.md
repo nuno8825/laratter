@@ -69,3 +69,9 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## ファイル名　
 ## 布川昌憲＿３８＿laravel初級編
+
+## ボタンにマウスのカーソルを乗せると、説明がでる機能を作った
+
+## 削除ボタンを押したとき、一発で削除されないように本当に削除するかの確認のポップアップがでる機能を作った
+
+##　右下にある猫と顔文字は、スタンプ機能を作ろうとした残骸です
