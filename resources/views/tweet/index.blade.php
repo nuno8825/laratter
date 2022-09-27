@@ -8,6 +8,29 @@
   </x-slot>
   <!-------------------------------------------->
   <link rel="stylesheet" href="{{ asset('css/coment.css') }}">
+  <!-------------------------------------------->
+  <script type="text/javascript"> 
+  <!-- 
+
+  function check(){
+
+    if(window.confirm('本当に削除してよろしいですか？')){ // 確認ダイアログを表示
+
+      return true; // 「OK」時は送信を実行
+
+    }
+    else{ // 「キャンセル」時の処理
+
+      window.alert('キャンセルされました'); // 警告ダイアログを表示
+      return false; // 送信を中止
+
+    }
+
+  }
+
+  // -->
+  </script>
+  <!-------------------------------------------->
 
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:w-10/12 md:w-8/10 lg:w-8/12">
@@ -66,12 +89,13 @@
                     @endif
                   </div>
                     <!-- 🔼 ここまで編集 -->
-                    
-                    <a href="{{ route('tweet.show',$tweet->id) }}" background-color: black>
-                      <span class="tooltip">  
-                        <h1 class="text-left font-bold text-lg text-grey-dark" background-color: black>{{$tweet->tweet}}</h1>
-                      <span class="description_top">ツイートの詳細をみる</span></span>
-                    </a>
+                    <div style="background-color:#EDF7FF;">
+                      <a href="{{ route('tweet.show',$tweet->id) }}" >
+                        <span class="tooltip">  
+                          <h1 class="text-left font-bold text-lg text-grey-dark" background-color: black>{{$tweet->tweet}}</h1>
+                        <span class="description_top">ツイートの詳細をみる</span></span>
+                      </a>
+                    </div>
                     
 
                   <div class="flex">
@@ -89,6 +113,8 @@
                         
                         <span class="description_top">ツイートへのいいねを取り消す</span></span>
                         {{ $tweet->users()->count() }}
+                        
+
                       </button>
                       
                     </form>
@@ -125,11 +151,11 @@
 
                     </form>
                     <!-- 削除ボタン -->
-                    <form action="{{ route('tweet.destroy',$tweet->id) }}" method="POST" class="text-left" >
+                    <form action="{{ route('tweet.destroy',$tweet->id) }}" method="POST" class="text-left" onSubmit="return check()">
                       @method('delete')
                       @csrf
                       <span class="tooltip">
-                      <button type="submit" class="mr-2 ml-2 text-sm hover:bg-gray-200 hover:shadow-none text-white py-1 px-2 focus:outline-none focus:shadow-outline">
+                      <button type="submit" class="mr-2 ml-2 text-sm hover:bg-gray-200 hover:shadow-none text-white py-1 px-2 focus:outline-none focus:shadow-outline" >
                         <svg class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="black">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
@@ -138,6 +164,8 @@
                     </form>
                     @endif
                     <!-- 🔽 追加 -->
+
+
                     <!-- reaction 状態で条件分岐 -->
                     @if($tweet->users()->where('user_id', Auth::id())->exists())
                     <!-- unreaction ボタン -->
@@ -158,6 +186,11 @@
                       </button>
                     </form>
                     @endif
+
+                    <svg  onClick="disp()" style="opacity: 0.2" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+
                   </div>
                 </td>
               </tr>

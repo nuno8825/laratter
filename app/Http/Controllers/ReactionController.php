@@ -81,9 +81,9 @@ class ReactionController extends Controller
 
     // 🔽 編集（`store()` の `()` 内も異なるので注意）
     public function store(Tweet $tweet)
-    {
-        $tweet->users()->attach(Auth::id());
+    {   
         
+        $tweet->users()->attach(Auth::id());
         return redirect()->route('tweet.index');
     }
 
